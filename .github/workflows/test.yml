@@ -33,13 +33,12 @@ jobs:
         make unit-test
         make integration-test
 
-    - name: Build Test for feature
+    - name: Build Test for features
       run: |
         git submodule update --init
-        cargo build --features "heed_storage"
-        cargo build --features "tls"
-        cargo build --features "rocksdb_storage"
-        cargo build --features "inmemory_storage"
+        cargo build --features "heed_storage,tls"
+        cargo build --features "rocksdb_storage,tls"
+        cargo build --features "inmemory_storage,tls"
         ls target/debug
 
     - name: Set up Python
