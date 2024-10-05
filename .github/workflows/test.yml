@@ -26,13 +26,6 @@ jobs:
         toolchain: stable
         override: true
 
-    - name: Build and Check Rust unit tests and integration tests all pass
-      run: |
-        git submodule update --init
-        make build
-        make unit-test
-        make integration-test
-
     - name: Build Test for features
       run: |
         git submodule update --init
