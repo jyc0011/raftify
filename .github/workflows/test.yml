@@ -33,6 +33,15 @@ jobs:
         make unit-test
         make integration-test
 
+    - name: Build Test for feature
+      run: |
+        git submodule update --init
+        cargo build --features "heed_storage"
+        cargo build --features "tls"
+        cargo build --features "rocksdb_storage"
+        cargo build --features "inmemory_storage"
+        ls target/debug
+
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
